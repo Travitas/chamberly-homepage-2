@@ -456,6 +456,46 @@ body{font-size:15px;line-height:1.65}
 @media(max-width:680px){.hero{padding:105px 0 42px}.hero-grid{grid-template-columns:1fr;gap:12px}.hero h1{font-size:43px}.hero-copy>p{font-size:14px}.hero-stats{gap:10px;margin-top:25px;padding-top:17px}.stat{padding-right:8px}.stat strong{font-size:21px}.stat span{font-size:10px}.hero-advocates{height:325px;margin-top:12px}.photo-main{width:165px;height:240px}.photo-left{left:2%;top:17%;width:100px;height:145px}.photo-right{right:2%;top:17%;width:100px;height:145px}.photo-bottom{right:16%;width:90px;height:125px}.hero-floating-note{bottom:0;padding:8px 11px}.quick-services{padding:26px 0}.quick-grid{grid-template-columns:repeat(2,1fr);gap:10px}.quick-card{min-height:135px;padding:16px;border-radius:16px;gap:10px}.quick-icon{width:43px;height:43px;flex-basis:43px;font-size:19px}.quick-card strong{font-size:14px}.quick-card small{font-size:11px}.featured-head .section-title,.section-row-head .section-title,#practice .section-row-head .section-title{font-size:30px}.featured-head .section-sub,.section-row-head .section-sub{font-size:12px}.adv-track{grid-auto-columns:82%;gap:10px}.adv-card-top{height:76px}.adv-avatar{width:54px;height:54px;flex-basis:54px}.adv-card h3{font-size:13px}.adv-role,.adv-location,.adv-exp{font-size:11px}.adv-tags span{font-size:10px}.practice-grid{grid-template-columns:1fr 1fr;gap:9px}.practice-card{min-height:150px;padding:15px;border-radius:15px}.practice-card .icon{width:40px;height:40px;font-size:19px;margin-bottom:15px}.practice-card h3{font-size:14px}.practice-card p{font-size:11px;max-width:100%}.practice-card:after{right:12px;bottom:12px;width:28px;height:28px;font-size:17px}}
 @media(prefers-reduced-motion:reduce){.hero-photo,.quick-card,.practice-card{transition:none}}
 
+
+/* Practice areas: reference-matched Astrotalk card treatment */
+.practice-astrotalk{padding:76px 0 82px;background:radial-gradient(ellipse at 50% 45%,rgba(130,82,30,.10),transparent 65%),linear-gradient(180deg,#100c07,#0d0906)}
+.practice-astrotalk .practice-heading{align-items:flex-start;margin-bottom:36px}
+.practice-astrotalk .eyebrow{font-size:13px;letter-spacing:.13em;color:#c46a0a;margin:0 0 12px}
+.practice-astrotalk .section-title{font-family:Raleway,Poppins,sans-serif;font-size:clamp(42px,5.2vw,70px);font-weight:500;line-height:1.04;letter-spacing:-.045em}
+.practice-all{display:inline-flex;align-items:center;gap:13px;margin-top:8px;padding:13px 23px;border:1px solid #c46a0a;border-radius:999px;background:#fff;color:#b95f00;font-size:13px;font-weight:500;white-space:nowrap;transition:.2s}
+.practice-all:hover{background:#f8ead8;transform:translateY(-2px)}
+.practice-all span{font-size:20px;line-height:1}
+.practice-astrotalk .practice-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.practice-astrotalk .practice-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:142px;padding:24px 30px;border:1px solid rgba(255,255,255,.09);border-radius:19px;overflow:hidden;background:linear-gradient(145deg,rgba(37,30,22,.92),rgba(25,20,15,.96));transition:transform .22s,border-color .22s,background .22s}
+.practice-astrotalk .practice-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 92% 5%,var(--tone-glow),transparent 32%);opacity:.75}
+.practice-astrotalk .practice-card:hover{transform:translateY(-3px);border-color:var(--tone);background:linear-gradient(145deg,rgba(43,34,24,.98),rgba(25,20,15,.98))}
+.practice-astrotalk .practice-card .icon{position:relative;width:60px;height:60px;margin:0 0 13px;border-radius:16px;display:grid;place-items:center;background:var(--tone-bg);color:var(--tone);font-size:29px;line-height:1}
+.practice-astrotalk .practice-card h3{position:relative;margin:0;padding-right:36px;font-family:Poppins,Raleway,sans-serif;font-size:clamp(16px,1.55vw,22px);line-height:1.3;font-weight:600;color:#fff9f0}
+.practice-astrotalk .practice-arrow{position:absolute;right:24px;bottom:25px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--tone-bg);color:var(--tone);font-size:23px;line-height:1;transition:transform .2s}
+.practice-astrotalk .practice-card:hover .practice-arrow{transform:translateX(3px)}
+.practice-tone-pink{--tone:#f04476;--tone-bg:rgba(240,68,118,.16);--tone-glow:rgba(240,68,118,.14)}
+.practice-tone-orange{--tone:#ff9d19;--tone-bg:rgba(255,157,25,.16);--tone-glow:rgba(255,157,25,.13)}
+.practice-tone-green{--tone:#20d47b;--tone-bg:rgba(32,212,123,.16);--tone-glow:rgba(32,212,123,.12)}
+.practice-tone-purple{--tone:#d75bea;--tone-bg:rgba(215,91,234,.16);--tone-glow:rgba(215,91,234,.12)}
+.practice-tone-cyan{--tone:#40c9ed;--tone-bg:rgba(64,201,237,.16);--tone-glow:rgba(64,201,237,.12)}
+.practice-tone-red{--tone:#ff5968;--tone-bg:rgba(255,89,104,.16);--tone-glow:rgba(255,89,104,.12)}
+.practice-tone-blue{--tone:#548bff;--tone-bg:rgba(84,139,255,.16);--tone-glow:rgba(84,139,255,.12)}
+.practice-tone-rose{--tone:#ff5868;--tone-bg:rgba(255,88,104,.16);--tone-glow:rgba(255,88,104,.12)}
+html[data-theme="light"] .practice-astrotalk{background:linear-gradient(180deg,#f2ecdf,#f8f4eb)}
+html[data-theme="light"] .practice-astrotalk .practice-card{background:linear-gradient(145deg,#fffaf0,#f0e7d8)}
+html[data-theme="light"] .practice-astrotalk .practice-card h3{color:#241b0d}
+@media(max-width:700px){
+ .practice-astrotalk{padding:48px 0}
+ .practice-astrotalk .practice-heading{gap:18px;flex-direction:column;align-items:flex-start;margin-bottom:24px}
+ .practice-astrotalk .section-title{font-size:clamp(36px,10vw,48px)}
+ .practice-all{margin-top:0;padding:10px 17px;font-size:12px}
+ .practice-astrotalk .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .practice-astrotalk .practice-card{min-height:126px;padding:15px;border-radius:14px}
+ .practice-astrotalk .practice-card .icon{width:42px;height:42px;border-radius:12px;font-size:22px;margin-bottom:11px}
+ .practice-astrotalk .practice-card h3{font-size:13px;padding-right:20px}
+ .practice-astrotalk .practice-arrow{right:12px;bottom:13px;width:28px;height:28px;font-size:17px}
+}
+
 </style>
 </head>
 <body>
@@ -498,9 +538,31 @@ body{font-size:15px;line-height:1.65}
  </div>
 </section>
 
-<section class="section section-dark section-topline" id="practice"><div class="container"><div class="section-row-head"><div><p class="eyebrow">Find the right expertise</p><h2 class="section-title">Explore Legal <span class="accent">Practice Areas</span></h2><p class="section-sub">Browse advocates by the area of law relevant to your requirements.</p></div><a class="text-link" href="#advocates">Explore advocates ↗</a></div><div class="practice-grid">
-<a class="practice-card" href="#advocates"><div class="icon">⚖</div><h3>Corporate & Commercial</h3><p>Business disputes, contracts, company law and commercial matters.</p></a><a class="practice-card" href="#advocates"><div class="icon">⌂</div><h3>Real Estate & RERA</h3><p>Property disputes, RERA matters, transactions and development.</p></a><a class="practice-card" href="#advocates"><div class="icon">♡</div><h3>Family Law</h3><p>Divorce, matrimonial disputes, custody and family matters.</p></a><a class="practice-card" href="#advocates"><div class="icon">⛨</div><h3>Criminal Law</h3><p>Criminal defence, bail, investigation and related legal matters.</p></a><a class="practice-card" href="#advocates"><div class="icon">▤</div><h3>Civil Litigation</h3><p>Civil disputes, recovery, injunction and litigation matters.</p></a><a class="practice-card" href="#advocates"><div class="icon">▧</div><h3>Tax & Finance</h3><p>Tax disputes, financial regulations and advisory services.</p></a><a class="practice-card" href="#advocates"><div class="icon">▣</div><h3>Employment Law</h3><p>Employment disputes, contracts, compliance and workplace matters.</p></a><a class="practice-card" href="#advocates"><div class="icon">＋</div><h3>Other Practice Areas</h3><p>Explore more legal specialisations and professional expertise.</p></a>
-</div></div></section>
+<section class="section section-dark section-topline practice-astrotalk" id="practice">
+ <div class="container">
+  <div class="section-row-head practice-heading">
+   <div>
+    <p class="eyebrow">Explore Legal Practice Areas</p>
+    <h2 class="section-title">Explore Legal<br>Practice <span class="accent">Areas</span></h2>
+   </div>
+   <a class="practice-all" href="#advocates">View all practice areas <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="practice-grid">
+   <a class="practice-card practice-tone-pink" href="#advocates"><span class="icon" aria-hidden="true">⚖</span><h3>Corporate &amp; Commercial</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-orange" href="#advocates"><span class="icon" aria-hidden="true">⌂</span><h3>Real Estate &amp; RERA</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-green" href="#advocates"><span class="icon" aria-hidden="true">♧</span><h3>Family Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-purple" href="#advocates"><span class="icon" aria-hidden="true">⚒</span><h3>Criminal Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-cyan" href="#advocates"><span class="icon" aria-hidden="true">▤</span><h3>Civil Litigation</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-red" href="#advocates"><span class="icon" aria-hidden="true">▤</span><h3>Tax &amp; Finance</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-blue" href="#advocates"><span class="icon" aria-hidden="true">▣</span><h3>Employment Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-rose" href="#advocates"><span class="icon" aria-hidden="true">⬡</span><h3>Consumer Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-green" href="#advocates"><span class="icon" aria-hidden="true">♧</span><h3>Environmental Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-orange" href="#advocates"><span class="icon" aria-hidden="true">⌂</span><h3>IPR &amp; Technology Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-purple" href="#advocates"><span class="icon" aria-hidden="true">▣</span><h3>Education Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+   <a class="practice-card practice-tone-blue" href="#advocates"><span class="icon" aria-hidden="true">✚</span><h3>Medical &amp; Health Law</h3><span class="practice-arrow" aria-hidden="true">→</span></a>
+  </div>
+ </div>
+</section>
 
 <section class="section section-dark section-topline" id="professional-directory">
  <div class="container">
