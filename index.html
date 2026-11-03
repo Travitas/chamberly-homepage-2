@@ -496,20 +496,345 @@ html[data-theme="light"] .practice-astrotalk .practice-card h3{color:#241b0d}
  .practice-astrotalk .practice-arrow{right:12px;bottom:13px;width:28px;height:28px;font-size:17px}
 }
 
+
+/* ===== Requested refinements: light theme, featured advocates grid, practice arrows ===== */
+
+/* Featured advocates: static two-row desktop grid; no horizontal carousel/scrolling */
+#advocates .adv-controls{display:none!important}
+#advocates .adv-track{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-auto-flow:row;
+  grid-auto-columns:unset;
+  gap:16px;
+  overflow:visible!important;
+  scroll-snap-type:none;
+  scrollbar-width:none;
+  padding:4px 1px 8px;
+}
+#advocates .adv-track::-webkit-scrollbar{display:none!important}
+#advocates .adv-card{
+  min-width:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+#advocates .adv-card-top{flex:0 0 86px;min-height:86px}
+#advocates .adv-card-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+#advocates .adv-tags{min-height:66px;align-content:flex-start}
+#advocates .adv-exp{margin-top:auto;min-height:24px}
+#advocates .adv-card .profile-link{
+  display:block;
+  margin-top:12px;
+  min-height:42px;
+  flex:0 0 42px;
+}
+@media(max-width:1100px){
+  #advocates .adv-track{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  #advocates .adv-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  #advocates .adv-card-top{gap:9px;padding:10px;min-height:76px;flex-basis:76px}
+  #advocates .adv-avatar{width:48px;height:54px;flex-basis:48px}
+  #advocates .adv-card h3{font-size:12px}
+  #advocates .adv-role{font-size:10px}
+  #advocates .adv-card-body{padding:11px}
+  #advocates .adv-tags{min-height:72px}
+  #advocates .adv-tags span{font-size:9px}
+  #advocates .adv-location,#advocates .adv-exp{font-size:10px}
+  #advocates .adv-card .profile-link{font-size:10px;min-height:38px;flex-basis:38px;padding:8px 5px}
+}
+@media(max-width:420px){
+  #advocates .adv-track{grid-template-columns:1fr}
+}
+
+/* Practice area arrow: remove legacy pseudo arrow so only the HTML arrow remains */
+.practice-astrotalk .practice-card:after{content:none!important;display:none!important}
+.practice-astrotalk .practice-card .practice-arrow{
+  color:var(--tone)!important;
+  background:var(--tone-bg)!important;
+  border:1px solid color-mix(in srgb,var(--tone) 22%,transparent);
+}
+.practice-astrotalk .practice-card:hover .practice-arrow{
+  color:var(--tone)!important;
+  background:var(--tone-bg)!important;
+}
+
+/* Light mode: enforce readable foregrounds across all light surfaces */
+html[data-theme="light"]{
+  --text:#241b0d;
+  --muted:#5f5547;
+  --dim:#766b5c;
+}
+html[data-theme="light"] body{color:#241b0d}
+html[data-theme="light"] .brand,
+html[data-theme="light"] .section-title,
+html[data-theme="light"] .featured-head .section-title,
+html[data-theme="light"] .section-row-head .section-title,
+html[data-theme="light"] .digital-copy h2,
+html[data-theme="light"] .why-intro h2,
+html[data-theme="light"] .faq-title h2,
+html[data-theme="light"] .cta h2{color:#241b0d}
+html[data-theme="light"] .eyebrow{color:#995300}
+html[data-theme="light"] .accent{color:#98600b}
+html[data-theme="light"] .section-sub,
+html[data-theme="light"] .quick-card small,
+html[data-theme="light"] .quick-card strong,
+html[data-theme="light"] .featured-head .section-sub,
+html[data-theme="light"] .section-row-head .section-sub,
+html[data-theme="light"] .search-note,
+html[data-theme="light"] .adv-role,
+html[data-theme="light"] .adv-location,
+html[data-theme="light"] .adv-exp,
+html[data-theme="light"] .tool-copy p,
+html[data-theme="light"] .tool-point,
+html[data-theme="light"] .digital-copy>p,
+html[data-theme="light"] .feature span,
+html[data-theme="light"] .feature strong,
+html[data-theme="light"] .why-intro p,
+html[data-theme="light"] .why-panel h3,
+html[data-theme="light"] .why-panel p,
+html[data-theme="light"] .faq-title p,
+html[data-theme="light"] .faq-q,
+html[data-theme="light"] .faq-a,
+html[data-theme="light"] .cta p,
+html[data-theme="light"] .knowledge-card h3,
+html[data-theme="light"] .knowledge-card p,
+html[data-theme="light"] .knowledge-card a,
+html[data-theme="light"] .footer-about p,
+html[data-theme="light"] .footer-col h4,
+html[data-theme="light"] .footer-col a,
+html[data-theme="light"] .footer-bottom,
+html[data-theme="light"] .trust-item strong,
+html[data-theme="light"] .trust-item p,
+html[data-theme="light"] .process-item h3,
+html[data-theme="light"] .process-item p{
+  color:#514638!important;
+}
+html[data-theme="light"] .navlinks a,
+html[data-theme="light"] .login{color:#403629!important}
+html[data-theme="light"] .quick-card,
+html[data-theme="light"] .adv-card,
+html[data-theme="light"] .adv-card-top,
+html[data-theme="light"] .tools-shell,
+html[data-theme="light"] .profile-mock,
+html[data-theme="light"] .trust-item,
+html[data-theme="light"] .process-item,
+html[data-theme="light"] .knowledge-card,
+html[data-theme="light"] .why-panel,
+html[data-theme="light"] .need-card,
+html[data-theme="light"] .service-card{
+  color:#241b0d!important;
+}
+html[data-theme="light"] #advocates .adv-card h3,
+html[data-theme="light"] #advocates .adv-card-body,
+html[data-theme="light"] #advocates .adv-card .adv-role,
+html[data-theme="light"] #advocates .adv-card .adv-location,
+html[data-theme="light"] #advocates .adv-card .adv-exp{
+  color:#403629!important;
+}
+html[data-theme="light"] #advocates .adv-tags span{
+  background:#e8dfd0!important;
+  color:#403629!important;
+}
+html[data-theme="light"] #advocates .adv-card .profile-link{
+  background:#fffaf0!important;
+  color:#704600!important;
+  border-color:rgba(112,70,0,.24)!important;
+}
+html[data-theme="light"] .search-box input{
+  background:#fffdf8!important;
+  color:#241b0d!important;
+  border-color:rgba(49,37,20,.22)!important;
+}
+html[data-theme="light"] .search-box input::placeholder{color:#766b5c!important;opacity:1}
+html[data-theme="light"] .tool-tab{color:#514638!important}
+html[data-theme="light"] .tool-tab.active{color:#fff!important}
+html[data-theme="light"] .mock-header strong,
+html[data-theme="light"] .mock-footer{color:#514638!important}
+html[data-theme="light"] .practice-astrotalk .practice-card h3{color:#241b0d!important}
+html[data-theme="light"] .practice-astrotalk .practice-card .icon{color:var(--tone)!important}
+html[data-theme="light"] .practice-astrotalk .practice-card .practice-arrow{color:var(--tone)!important}
+html[data-theme="light"] .photo-caption{color:#fff!important}
+html[data-theme="light"] .hero-floating-note{color:#fff!important}
+html[data-theme="light"] .hero-floating-note small{color:#e8dfd0!important}
+html[data-theme="light"] .profile-showcase,
+html[data-theme="light"] .profile-showcase *{color:#fff9ec}
+html[data-theme="light"] .profile-showcase .showcase-role,
+html[data-theme="light"] .profile-showcase .showcase-bottom small{color:#e0d5c3!important}
+html[data-theme="light"] .btn{color:#1a1608!important}
+html[data-theme="light"] .btn-dark{color:#fff8e9!important}
+html[data-theme="light"] .practice-all{color:#995300!important}
+html[data-theme="light"] .toast{color:#171306!important}
+
+
+/* V6 refinements: 8 advocates, improved discovery and interactive identity showcase */
+#advocates .adv-track{grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-auto-flow:row!important;gap:18px!important}
+#advocates .adv-card{min-height:100%;}
+@media(max-width:1050px){#advocates .adv-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:560px){#advocates .adv-track{grid-template-columns:1fr!important}}
+.discover-heading{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:28px}
+.discover-heading>div{max-width:760px}.discover-heading .section-sub{margin:12px 0 0;max-width:650px}
+.discover-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.discover-card{position:relative;min-height:190px;padding:22px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#211b13,#14100b);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:.25s}
+.discover-card:before{content:"";position:absolute;width:170px;height:170px;right:-70px;top:-85px;border-radius:50%;background:rgba(242,229,74,.10);filter:blur(35px)}
+.discover-card:hover{transform:translateY(-4px);border-color:rgba(242,229,74,.42)}
+.discover-icon{width:43px;height:43px;border-radius:12px;background:rgba(242,229,74,.13);color:var(--gold);display:grid;place-items:center;font-size:22px}
+.discover-card small{display:block;color:#c46a0a;font-size:10px;letter-spacing:.14em;font-weight:700;margin-bottom:7px}
+.discover-card h3{font:600 19px/1.25 Raleway,Poppins,sans-serif;margin:0 0 7px;color:var(--text)}
+.discover-card p{font-size:13px;line-height:1.65;color:var(--muted);margin:0;max-width:330px}
+.discover-arrow{position:absolute;right:19px;bottom:19px;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:rgba(242,229,74,.12);color:var(--gold);font-size:17px}
+.discover-card-main{background:radial-gradient(ellipse at 80% 0,rgba(242,229,74,.17),transparent 48%),linear-gradient(145deg,#292014,#15110c)}
+.discover-card-note{background:linear-gradient(145deg,#241b11,#120e09);justify-content:center}
+.discover-note-mark{font:700 68px Georgia,serif;color:rgba(242,229,74,.3);line-height:1}
+.discover-card-note h3{font-size:22px;max-width:270px}
+.identity-showcase{display:grid;grid-template-columns:.78fr 1.22fr;gap:22px;padding:18px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,#1b1711,#100d09)}
+.identity-sidebar{display:flex;flex-direction:column;gap:9px}
+.identity-tab{width:100%;display:grid;grid-template-columns:42px 1fr 18px;gap:11px;align-items:center;text-align:left;padding:13px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);color:var(--text);transition:.2s}
+.identity-tab>span:first-child{width:40px;height:40px;border-radius:11px;background:rgba(242,229,74,.12);color:var(--gold);display:grid;place-items:center;font-size:19px}
+.identity-tab b,.identity-tab small{display:block}.identity-tab b{font-size:14px}.identity-tab small{font-size:11px;color:var(--muted);margin-top:2px}.identity-tab i{font-style:normal;color:var(--muted)}
+.identity-tab.active,.identity-tab:hover{border-color:rgba(242,229,74,.5);background:rgba(242,229,74,.075)}
+.identity-tab.active i{color:var(--gold)}
+.identity-tab-copy{margin-top:auto;padding:19px 7px 5px}.identity-tab-copy strong{font:600 20px Raleway,Poppins,sans-serif}.identity-tab-copy p{font-size:13px;line-height:1.7;color:var(--muted);margin:8px 0}.identity-tab-copy ul{padding-left:18px;margin:10px 0 0;color:var(--muted);font-size:12px;line-height:1.9}
+.identity-preview-wrap{min-width:0;border:1px solid var(--line);border-radius:15px;background:radial-gradient(ellipse at 50% 0,rgba(242,229,74,.08),transparent 60%),#0c0a08;padding:16px;display:flex;flex-direction:column}
+.preview-label{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:10px;letter-spacing:.1em;margin-bottom:13px}.preview-status{letter-spacing:0;color:#6fc99b}
+.identity-preview{flex:1;min-height:390px;display:grid;place-items:center;overflow:hidden}
+.preview-profile{width:min(100%,620px);border:1px solid #393126;border-radius:13px;background:#17130f;overflow:hidden;color:#fff9ec;box-shadow:0 18px 45px #0007}
+.preview-cover{height:82px;background:radial-gradient(ellipse at 75% 30%,rgba(242,229,74,.28),transparent 40%),linear-gradient(110deg,#312414,#17130e)}
+.preview-person{display:flex;align-items:center;gap:13px;padding:0 18px 15px;margin-top:-28px;position:relative}.preview-avatar,.doc-avatar,.vcard-avatar{width:66px;height:66px;flex:0 0 66px;border:3px solid #17130f;border-radius:50%;background:linear-gradient(145deg,#b88a47,#45301a);display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px}.preview-person h3{font-size:17px;margin:4px 0}.preview-person p,.preview-person small{display:block;color:#c9bda9;font-size:11px;margin:0}.preview-verified{font-size:8px;color:#78d5a5;letter-spacing:.08em}.preview-person button{margin-left:auto;border:0;border-radius:20px;padding:8px 15px;background:#f2e54a;color:#171306;font-size:10px;font-weight:700}
+.preview-tabs{display:flex;gap:18px;padding:12px 18px;border-top:1px solid #393126;border-bottom:1px solid #393126;color:#b9ad9c;font-size:10px;white-space:nowrap;overflow:hidden}.preview-tabs b{color:#f2e54a}.preview-content{padding:17px 18px}.preview-content small{font-size:8px;color:#c46a0a;letter-spacing:.13em}.preview-content h4{font-size:14px;margin:5px 0}.preview-content p{font-size:10px;color:#b9ad9c;margin:0}.preview-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.preview-mini-grid span{padding:12px 8px;border-radius:7px;background:#252017;color:#d7cbb8;font-size:9px;text-align:center}
+.qr-preview,.share-preview,.vcard-preview{width:100%;min-height:350px;display:grid;place-items:center}
+.qr-paper{width:250px;padding:24px 20px;text-align:center;border-radius:15px;background:#fffdf7;color:#241b0d;box-shadow:0 20px 50px #0008}.qr-brand,.doc-top>span,.vcard-top>span:first-child{font:700 18px Raleway,sans-serif}.qr-brand span,.doc-top>span span,.vcard-top>span:first-child span{color:#a96b08}.qr-code{width:148px;height:148px;margin:19px auto 15px;padding:9px;background-color:white;background-image:repeating-conic-gradient(#17130e 0% 25%,white 0% 50%);background-size:14px 14px;border:7px solid #fff;outline:1px solid #ddd;position:relative}.qr-code:before,.qr-code:after,.qr-code i{content:"";position:absolute;width:34px;height:34px;border:7px solid #17130e;background:#fff;box-shadow:inset 0 0 0 6px #17130e;top:7px;left:7px}.qr-code:after{left:auto;right:7px}.qr-code i{top:auto;bottom:7px}.qr-paper h3{font-size:15px;margin:8px 0 2px}.qr-paper p,.qr-paper small{display:block;color:#716657;font-size:10px;margin:0 0 7px}
+.share-document{width:min(100%,470px);min-height:340px;padding:22px 25px;background:#fffdf8;color:#241b0d;border-radius:5px;box-shadow:0 20px 50px #0008;position:relative}.doc-top{display:flex;justify-content:space-between;align-items:center}.doc-top small{font-size:8px;letter-spacing:.12em;color:#8a7961}.doc-rule{height:2px;background:#a96b08;margin:13px 0 18px}.doc-person{display:flex;align-items:center;gap:12px;margin-bottom:20px}.doc-avatar{border:0;width:52px;height:52px;flex-basis:52px;background:#d9c7a9;color:#49361d}.doc-person h3{font-size:16px;margin:0}.doc-person p{font-size:10px;color:#756957;margin:3px 0}.share-document h4{font-size:12px;margin:0 0 5px}.doc-lines{font-size:10px;line-height:1.6;color:#6b6257;max-width:390px}.doc-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:17px}.doc-columns b,.doc-columns span{display:block;font-size:9px;margin:5px 0}.doc-columns b{color:#9a650e}.doc-columns span{color:#6b6257}.doc-footer{position:absolute;bottom:14px;left:25px;right:25px;border-top:1px solid #e2d9ca;padding-top:8px;font-size:7px;color:#8a7961;display:flex;justify-content:space-between}.doc-footer b{font-size:9px;color:#a96b08}
+.vcard{width:min(100%,430px);padding:24px;border-radius:17px;background:linear-gradient(135deg,#292116,#13100c);border:1px solid rgba(242,229,74,.38);color:#fff9ec;box-shadow:0 20px 50px #0008}.vcard-top{display:flex;justify-content:space-between;align-items:center;color:#f2e54a}.vcard-top>span:last-child{font-size:8px;letter-spacing:.12em;color:#c5b89f}.vcard-main{display:flex;align-items:center;gap:14px;margin:28px 0 20px}.vcard-avatar{border-color:#51432d;background:linear-gradient(145deg,#b88a47,#45301a)}.vcard-main h3{font-size:18px;margin:0}.vcard-main p{font-size:11px;color:#c5b89f;margin:3px 0}.vcard-divider{height:1px;background:#51432d}.vcard-details{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:18px 0;color:#e4d9c7;font-size:10px}.vcard-bottom{display:flex;justify-content:space-between;align-items:center}.vcard-bottom b{font-size:10px;padding:8px 13px;border-radius:20px;background:#f2e54a;color:#171306}.vcard-bottom span{font-size:9px;color:#c5b89f}
+html[data-theme="light"] .discover-card{background:linear-gradient(145deg,#fffdf8,#f0e7d8);color:#241b0d}html[data-theme="light"] .discover-card h3{color:#241b0d}html[data-theme="light"] .discover-card p{color:#5f5547}html[data-theme="light"] .discover-card small{color:#995300}
+html[data-theme="light"] .identity-showcase{background:linear-gradient(135deg,#fffdf8,#f0e7d8)}html[data-theme="light"] .identity-tab{background:#fffaf1;color:#241b0d}html[data-theme="light"] .identity-tab small,html[data-theme="light"] .identity-tab-copy p,html[data-theme="light"] .identity-tab-copy ul{color:#5f5547}html[data-theme="light"] .identity-tab-copy strong{color:#241b0d}html[data-theme="light"] .identity-preview-wrap{background:#e9e0d1}html[data-theme="light"] .preview-label{color:#514638}
+@media(max-width:900px){.discover-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.identity-showcase{grid-template-columns:1fr}.identity-tab-copy{padding-top:12px}}
+@media(max-width:600px){.discover-heading{display:block}.discover-heading>.btn{margin-top:18px}.discover-grid{grid-template-columns:1fr}.discover-card{min-height:165px}.identity-showcase{padding:11px}.identity-preview-wrap{padding:10px}.identity-preview{min-height:330px}.preview-person{gap:8px;padding-left:10px;padding-right:10px}.preview-person button{padding:7px 9px}.preview-tabs{gap:11px;padding:10px;font-size:9px}.preview-content{padding:13px}.doc-columns{gap:8px}.share-document{padding:18px 16px;min-height:355px}.doc-footer{left:16px;right:16px}.vcard-details{grid-template-columns:1fr}.identity-tab-copy{padding-left:5px}}
+
+
+/* Final visibility and layout refinements */
+.discover-heading .btn-line{color:#f2e54a!important;background:rgba(242,229,74,.09);border:1px solid rgba(242,229,74,.7);padding:12px 19px;min-height:44px;white-space:nowrap;font-size:13px;font-weight:700;line-height:1.2;text-shadow:0 1px 1px rgba(0,0,0,.25);flex:0 0 auto;position:relative;z-index:2}
+.discover-heading .btn-line .arrow{color:inherit;font-size:17px}
+html[data-theme="light"] .discover-heading .btn-line{color:#5d3b00!important;background:#fff8e8;border-color:#a96b08}
+.why-chamberly .container{grid-template-columns:.9fr 1.1fr;gap:64px}
+.why-intro{max-width:470px}.why-intro h2{font-size:clamp(36px,4.3vw,53px);line-height:1.04;max-width:470px}.why-intro p:not(.eyebrow){font-size:15px;line-height:1.8;margin:19px 0 23px}
+.why-text-link{display:inline-flex;align-items:center;gap:10px;color:#f2e54a;font-size:13px;font-weight:700;border-bottom:1px solid rgba(242,229,74,.45);padding-bottom:6px}.why-text-link span{font-size:18px;transition:transform .2s}.why-text-link:hover span{transform:translateX(4px)}
+.why-panels{gap:14px}.why-panel{min-height:205px;padding:25px;gap:28px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));}.why-index{display:flex;align-items:center;gap:12px;font-size:14px}.why-index i{font-style:normal;font-size:9px;letter-spacing:.16em;color:rgba(255,249,236,.46)}.why-panel h3{font-size:20px;line-height:1.25}.why-panel p{font-size:14px;line-height:1.7}
+.how-chamberly .section-head{margin-bottom:40px}.how-chamberly .section-title{font-size:clamp(36px,4.3vw,50px)}.how-chamberly .section-sub{font-size:15px;line-height:1.7}.how-chamberly .process-grid{gap:15px}.how-chamberly .process-item{min-height:265px;padding:24px;position:relative;overflow:hidden}.how-chamberly .process-item:after{content:"";position:absolute;width:130px;height:130px;right:-55px;bottom:-60px;border-radius:50%;background:rgba(242,229,74,.07);filter:blur(5px);pointer-events:none}.process-topline{display:flex;align-items:center;gap:13px;margin-bottom:25px}.how-chamberly .process-number{width:43px;height:43px;flex:0 0 43px;margin:0;display:grid;place-items:center;border-radius:13px;background:rgba(242,229,74,.13);color:#f2e54a;font-weight:700;font-size:15px}.process-kicker{font-size:9px;letter-spacing:.13em;margin:0;color:#d8a83c}.how-chamberly .process-item h3{font-size:23px;margin:0 0 12px}.how-chamberly .process-item p{font-size:14px;line-height:1.7;margin:0 0 18px}.process-foot{margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;letter-spacing:.04em;color:rgba(255,249,236,.5)}
+html[data-theme="light"] .why-text-link{color:#80520a}html[data-theme="light"] .why-index i{color:#776b5a}html[data-theme="light"] .process-foot{color:#62594d;border-color:rgba(49,37,20,.14)}
+@media(max-width:900px){.why-chamberly .container{grid-template-columns:1fr;gap:30px}.why-intro{position:static;max-width:700px}.why-panels{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.discover-heading{align-items:flex-start;flex-direction:column}.discover-heading .btn-line{margin-top:5px}.why-panels{grid-template-columns:1fr}.why-panel{min-height:unset}.how-chamberly .process-grid{grid-template-columns:1fr 1fr}.how-chamberly .process-item{min-height:230px;padding:17px}.process-topline{gap:9px;margin-bottom:19px}.process-kicker{font-size:8px}.how-chamberly .process-item h3{font-size:19px}.how-chamberly .process-item p{font-size:12px}}
+@media(max-width:420px){.how-chamberly .process-grid{grid-template-columns:1fr}.how-chamberly .process-item{min-height:205px}}
+</style>
+
+<style id="v7-section-refinements">
+/* Discover Chamberly */
+.discover-section{position:relative;overflow:hidden;background:radial-gradient(ellipse at 8% 12%,rgba(242,229,74,.075),transparent 36%),linear-gradient(180deg,#100d08,#0d0a06)}
+.discover-heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
+.discover-heading .section-title{max-width:720px;font-size:clamp(32px,4vw,48px);line-height:1.08}
+.discover-heading .section-sub{margin:13px 0 0;max-width:650px;font-size:15px}
+.discover-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.discover-card{min-height:190px;padding:23px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:20px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018));position:relative;overflow:hidden;transition:transform .25s,border-color .25s,background .25s}
+.discover-card:after{content:"";position:absolute;width:150px;height:150px;right:-70px;top:-75px;border-radius:50%;background:rgba(242,229,74,.09);filter:blur(25px);pointer-events:none}
+.discover-card:hover{transform:translateY(-5px);border-color:rgba(242,229,74,.45);background:linear-gradient(145deg,rgba(242,229,74,.09),rgba(255,255,255,.025))}
+.discover-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:rgba(242,229,74,.12);color:#f2e54a;font-size:22px;border:1px solid rgba(242,229,74,.2)}
+.discover-card small{display:block;color:#c98b26;font-size:10px;letter-spacing:.16em;font-weight:700;margin-bottom:9px}
+.discover-card h3{font:600 20px/1.25 Raleway,Poppins,sans-serif;margin:0 0 8px;color:#fff9ec}
+.discover-card p{font-size:13px;line-height:1.7;color:rgba(255,249,236,.68);margin:0;max-width:340px}
+.discover-arrow{position:absolute;right:22px;bottom:22px;width:34px;height:34px;border:1px solid rgba(242,229,74,.3);border-radius:50%;display:grid;place-items:center;color:#f2e54a;font-size:17px}
+.discover-card-main{background:linear-gradient(145deg,rgba(242,229,74,.13),rgba(255,255,255,.025))}
+.discover-card-note{background:linear-gradient(145deg,#211b13,#12100c);justify-content:center;align-items:flex-start}
+.discover-note-mark{font:600 54px Georgia,serif;color:rgba(242,229,74,.45)}
+.discover-card-note h3{font-size:24px;max-width:260px}
+/* Why Chamberly */
+.why-chamberly{position:relative;overflow:hidden;background:radial-gradient(ellipse at 82% 10%,rgba(242,229,74,.07),transparent 36%),linear-gradient(180deg,#0e0f11,#0b0c0e)}
+.why-chamberly .container{display:grid;grid-template-columns:.82fr 1.18fr;gap:55px;align-items:start}
+.why-intro{position:sticky;top:105px}
+.why-intro h2{font:600 clamp(34px,4vw,48px)/1.08 Raleway,Poppins,sans-serif;letter-spacing:-.035em;margin:0 0 16px;max-width:460px}
+.why-intro p:not(.eyebrow){font-size:15px;line-height:1.85;color:rgba(255,249,236,.68);max-width:440px}
+.why-panels{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.why-panel{min-height:190px;padding:22px;border:1px solid rgba(255,255,255,.11);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));display:flex;flex-direction:column;gap:23px;transition:.22s}
+.why-panel:hover{border-color:rgba(242,229,74,.4);transform:translateY(-3px)}
+.why-index{font-size:12px;color:#f2e54a;letter-spacing:.12em;font-weight:700}
+.why-panel h3{font:600 19px/1.3 Raleway,Poppins,sans-serif;color:#fff9ec;margin:0 0 9px}
+.why-panel p{font-size:13px;line-height:1.75;color:rgba(255,249,236,.66);margin:0}
+/* How Chamberly Works */
+.how-chamberly{background:radial-gradient(ellipse at 50% 0,rgba(242,229,74,.09),transparent 58%),#100d08;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.how-chamberly .section-head{max-width:760px;margin-bottom:34px}
+.how-chamberly .section-title{font-size:clamp(34px,4vw,48px)}
+.how-chamberly .section-sub{font-size:15px;max-width:650px}
+.how-chamberly .process-grid{gap:14px;margin-top:0}
+.how-chamberly .process-item{min-height:235px;padding:24px 20px;text-align:left;align-items:flex-start;justify-content:flex-start;background:linear-gradient(145deg,#211b13,#12100c);border:1px solid rgba(255,255,255,.11);border-radius:17px}
+.how-chamberly .process-number{width:48px;height:48px;margin:0 0 19px}
+.process-kicker{font-size:10px;letter-spacing:.14em;color:#c98b26;font-weight:700;margin-bottom:8px}
+.how-chamberly .process-item h3{font:600 20px/1.25 Raleway,Poppins,sans-serif;margin:0 0 10px}
+.how-chamberly .process-item p{font-size:13px;line-height:1.75;text-align:left;max-width:none}
+.how-note{font-size:12px;line-height:1.7;color:rgba(255,249,236,.48);text-align:center;margin:22px auto 0;max-width:800px}
+/* Readable light theme for the refined sections */
+html[data-theme="light"] .discover-section{background:radial-gradient(ellipse at 8% 12%,rgba(169,107,8,.08),transparent 36%),#f7f1e5}
+html[data-theme="light"] .discover-card,html[data-theme="light"] .discover-card-note{background:linear-gradient(145deg,#fffdf8,#eee5d5);border-color:rgba(49,37,20,.15)}
+html[data-theme="light"] .discover-card h3,html[data-theme="light"] .discover-card-note h3{color:#241b0d}
+html[data-theme="light"] .discover-card p{color:#62594d}
+html[data-theme="light"] .discover-card small{color:#8b5a0a}
+html[data-theme="light"] .discover-icon{background:rgba(169,107,8,.1);color:#8b5a0a;border-color:rgba(169,107,8,.2)}
+html[data-theme="light"] .discover-arrow{color:#8b5a0a;border-color:rgba(169,107,8,.3)}
+html[data-theme="light"] .why-chamberly{background:linear-gradient(180deg,#f2ecdf,#f8f4eb)}
+html[data-theme="light"] .why-intro p:not(.eyebrow),html[data-theme="light"] .why-panel p{color:#62594d}
+html[data-theme="light"] .why-panel{background:linear-gradient(145deg,#fffdf8,#eee5d5);border-color:rgba(49,37,20,.15)}
+html[data-theme="light"] .why-panel h3{color:#241b0d}
+html[data-theme="light"] .why-index,html[data-theme="light"] .process-kicker{color:#8b5a0a}
+html[data-theme="light"] .how-chamberly{background:radial-gradient(ellipse at 50% 0,rgba(169,107,8,.08),transparent 58%),#f7f1e5;border-color:rgba(49,37,20,.12)}
+html[data-theme="light"] .how-chamberly .process-item{background:linear-gradient(145deg,#fffdf8,#eee5d5);border-color:rgba(49,37,20,.15)}
+html[data-theme="light"] .how-chamberly .process-item h3{color:#241b0d}
+html[data-theme="light"] .how-chamberly .process-item p,html[data-theme="light"] .how-note{color:#62594d}
+@media(max-width:900px){.why-chamberly .container{grid-template-columns:1fr;gap:28px}.why-intro{position:static}.why-intro h2{max-width:700px}.why-panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.discover-heading{align-items:flex-start;flex-direction:column}.discover-heading .section-sub{font-size:13px}.discover-grid{grid-template-columns:1fr 1fr;gap:9px}.discover-card{min-height:180px;padding:15px}.discover-card h3{font-size:16px}.discover-card p{font-size:11px}.discover-icon{width:38px;height:38px}.discover-arrow{right:13px;bottom:13px;width:29px;height:29px}.discover-card-note h3{font-size:19px}.why-panels{grid-template-columns:1fr}.why-panel{min-height:unset;padding:18px;gap:15px}.why-intro h2{font-size:34px}.how-chamberly .process-grid{grid-template-columns:1fr 1fr}.how-chamberly .process-item{min-height:205px;padding:16px}.how-chamberly .process-item h3{font-size:16px}.how-chamberly .process-item p{font-size:11px}.process-kicker{font-size:9px}}
+@media(max-width:420px){.discover-grid{grid-template-columns:1fr}.how-chamberly .process-grid{grid-template-columns:1fr}}
+
+/* Final visibility and layout refinements */
+.discover-heading .btn-line{color:#f2e54a!important;background:rgba(242,229,74,.09);border:1px solid rgba(242,229,74,.7);padding:12px 19px;min-height:44px;white-space:nowrap;font-size:13px;font-weight:700;line-height:1.2;text-shadow:0 1px 1px rgba(0,0,0,.25);flex:0 0 auto;position:relative;z-index:2}
+.discover-heading .btn-line .arrow{color:inherit;font-size:17px}
+html[data-theme="light"] .discover-heading .btn-line{color:#5d3b00!important;background:#fff8e8;border-color:#a96b08}
+.why-chamberly .container{grid-template-columns:.9fr 1.1fr;gap:64px}
+.why-intro{max-width:470px}.why-intro h2{font-size:clamp(36px,4.3vw,53px);line-height:1.04;max-width:470px}.why-intro p:not(.eyebrow){font-size:15px;line-height:1.8;margin:19px 0 23px}
+.why-text-link{display:inline-flex;align-items:center;gap:10px;color:#f2e54a;font-size:13px;font-weight:700;border-bottom:1px solid rgba(242,229,74,.45);padding-bottom:6px}.why-text-link span{font-size:18px;transition:transform .2s}.why-text-link:hover span{transform:translateX(4px)}
+.why-panels{gap:14px}.why-panel{min-height:205px;padding:25px;gap:28px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));}.why-index{display:flex;align-items:center;gap:12px;font-size:14px}.why-index i{font-style:normal;font-size:9px;letter-spacing:.16em;color:rgba(255,249,236,.46)}.why-panel h3{font-size:20px;line-height:1.25}.why-panel p{font-size:14px;line-height:1.7}
+.how-chamberly .section-head{margin-bottom:40px}.how-chamberly .section-title{font-size:clamp(36px,4.3vw,50px)}.how-chamberly .section-sub{font-size:15px;line-height:1.7}.how-chamberly .process-grid{gap:15px}.how-chamberly .process-item{min-height:265px;padding:24px;position:relative;overflow:hidden}.how-chamberly .process-item:after{content:"";position:absolute;width:130px;height:130px;right:-55px;bottom:-60px;border-radius:50%;background:rgba(242,229,74,.07);filter:blur(5px);pointer-events:none}.process-topline{display:flex;align-items:center;gap:13px;margin-bottom:25px}.how-chamberly .process-number{width:43px;height:43px;flex:0 0 43px;margin:0;display:grid;place-items:center;border-radius:13px;background:rgba(242,229,74,.13);color:#f2e54a;font-weight:700;font-size:15px}.process-kicker{font-size:9px;letter-spacing:.13em;margin:0;color:#d8a83c}.how-chamberly .process-item h3{font-size:23px;margin:0 0 12px}.how-chamberly .process-item p{font-size:14px;line-height:1.7;margin:0 0 18px}.process-foot{margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;letter-spacing:.04em;color:rgba(255,249,236,.5)}
+html[data-theme="light"] .why-text-link{color:#80520a}html[data-theme="light"] .why-index i{color:#776b5a}html[data-theme="light"] .process-foot{color:#62594d;border-color:rgba(49,37,20,.14)}
+@media(max-width:900px){.why-chamberly .container{grid-template-columns:1fr;gap:30px}.why-intro{position:static;max-width:700px}.why-panels{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.discover-heading{align-items:flex-start;flex-direction:column}.discover-heading .btn-line{margin-top:5px}.why-panels{grid-template-columns:1fr}.why-panel{min-height:unset}.how-chamberly .process-grid{grid-template-columns:1fr 1fr}.how-chamberly .process-item{min-height:230px;padding:17px}.process-topline{gap:9px;margin-bottom:19px}.process-kicker{font-size:8px}.how-chamberly .process-item h3{font-size:19px}.how-chamberly .process-item p{font-size:12px}}
+@media(max-width:420px){.how-chamberly .process-grid{grid-template-columns:1fr}.how-chamberly .process-item{min-height:205px}}
+</style>
+
+
+<style id="final-header-hero-refinements">
+/* Hero verification badge styled to match the supplied reference */
+.hero .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 17px;border:1px solid #e6c66c;border-radius:999px;background:#fff0c5;color:#59451b;font-size:12px;font-weight:600;letter-spacing:.055em;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.hero .pill i{position:relative;display:inline-grid;place-items:center;flex:0 0 15px;width:15px;height:15px;background:#079b78;border-radius:50%;box-shadow:none}
+.hero .pill i:after{content:"✓";color:#fff;font:700 10px/1 Arial,sans-serif}
+.theme-toggle{width:36px;height:36px;min-width:36px;padding:0;display:inline-grid;place-items:center;gap:0;border-radius:50%;font-size:17px}
+.theme-icon{font-size:18px;line-height:1}
+@media(max-width:680px){.theme-toggle{width:34px;height:34px;min-width:34px;padding:0}}
 </style>
 </head>
 <body>
-<header id="header"><div class="container nav"><button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button><a class="brand" href="#home">Chamberly<span>.</span></a><nav class="navlinks" id="navlinks" aria-label="Main navigation"><a href="#advocates">Find Lawyers</a><a href="#practice">Practice Areas</a><a href="#how">How It Works</a><a href="#about">About</a></nav><div class="nav-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch theme"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light</span></button><span class="nav-dot" aria-hidden="true">◉</span><a class="login" href="#footer">Login</a><a class="btn" href="#join">Join as Advocate <span>→</span></a></div></div></header>
+<header id="header"><div class="container nav"><button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button><a class="brand" href="#home">Chamberly<span>.</span></a><nav class="navlinks" id="navlinks" aria-label="Main navigation"><a href="#advocates">Find Lawyers</a><a href="#practice">Practice Areas</a><a href="#how">How It Works</a><a href="#why">About</a></nav><div class="nav-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch theme"><span class="theme-icon" aria-hidden="true">☼</span></button><a class="login" href="#footer">Login</a><a class="btn" href="#join">Join as Advocate <span>→</span></a></div></div></header>
 <main>
-<section class="hero" id="home"><div class="container hero-grid"><div class="hero-copy"><div class="pill"><i></i> Verified legal professionals</div><h1>India's Professional <span>Legal Directory</span></h1><p>Discover verified advocates and law professionals, explore their expertise, credentials and professional profiles — all in one trusted platform.</p><div class="hero-actions"><a class="btn" href="#advocates">Find an Advocate <span class="arrow">→</span></a><a class="btn btn-dark" href="#join">Create Professional Profile</a></div><div class="hero-stats"><div class="stat"><strong>500+</strong><span>Verified Advocates</span></div><div class="stat"><strong>50+</strong><span>Practice Areas</span></div><div class="stat"><strong>1000+</strong><span>Professional Profiles</span></div></div></div><div class="hero-art hero-advocates" aria-label="Featured legal professionals">
+<section class="hero" id="home"><div class="container hero-grid"><div class="hero-copy"><div class="pill"><i></i> Verified legal professionals</div><h1>India's Professional <span>Legal Directory</span></h1><p>Discover verified advocates and law professionals, explore their expertise, credentials and professional profiles — all in one trusted platform.</p><div class="hero-actions"><a class="btn" href="#advocates">Find an Advocate <span class="arrow">→</span></a><a class="btn btn-dark" href="#join">Create Professional Profile</a></div><div class="hero-stats"><div class="stat"><strong>500+</strong><span>Verified Advocates</span></div><div class="stat"><strong>50+</strong><span>Practice Areas</span></div><div class="stat"><strong>1000+</strong><span>Understand the Profile</span></div></div></div><div class="hero-art hero-advocates" aria-label="Featured legal professionals">
  <div class="hero-photo photo-main"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=85" alt="Professional woman advocate portrait"><span class="photo-caption"><b>Verified Advocates</b><small>Trusted legal professionals</small></span></div>
  <div class="hero-photo photo-left"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=85" alt="Professional male advocate portrait"></div>
  <div class="hero-photo photo-right"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&auto=format&fit=crop&q=85" alt="Legal professional portrait"></div>
  <div class="hero-photo photo-bottom"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&auto=format&fit=crop&q=85" alt="Professional advocate portrait"></div>
  <div class="hero-floating-note"><span>✦</span><div><b>Find the right advocate</b><small>Expertise. Credibility. Connection.</small></div></div>
  </div></div></section>
-<section class="quick-services"><div class="container quick-grid"><div class="quick-card"><div class="quick-icon">✓</div><div><strong>Verified Professionals</strong><small>Explore professional profiles</small></div></div><div class="quick-card"><div class="quick-icon">⚖</div><div><strong>Explore Practice Areas</strong><small>Browse legal expertise</small></div></div><div class="quick-card"><div class="quick-icon">⌕</div><div><strong>Find the Right Advocate</strong><small>Search by name or location</small></div></div><div class="quick-card"><div class="quick-icon">▦</div><div><strong>Digital Legal Profiles</strong><small>Professional identity online</small></div></div></div></section>
-<section class="section section-warm" id="advocates"><div class="container"><div class="featured-head"><div><p class="eyebrow">Professionals</p><h2 class="section-title">Meet Featured <span class="accent">Advocates</span></h2><p class="section-sub">Explore legal professionals and their areas of practice.</p></div><div class="adv-controls"><button class="circle-btn" id="advPrev" aria-label="Previous advocates">‹</button><button class="circle-btn" id="advNext" aria-label="Next advocates">›</button></div></div><div class="search-box"><input id="advSearch" type="search" placeholder="Search by name, city, skill or practice area..." aria-label="Search advocates"><span>⌕</span></div><div class="search-note" id="searchNote">Showing 9 featured advocates</div><div class="adv-track" id="advTrack">
+<section class="quick-services"><div class="container quick-grid"><div class="quick-card"><div class="quick-icon">✓</div><div><strong>Verified Professionals</strong><small>Explore professional profiles</small></div></div><div class="quick-card"><div class="quick-icon">⚖</div><div><strong>Explore Practice Areas</strong><small>Browse legal expertise</small></div></div><div class="quick-card"><div class="quick-icon">⌕</div><div><strong>Discover Relevant Professionals</strong><small>Search by name or location</small></div></div><div class="quick-card"><div class="quick-icon">▦</div><div><strong>Digital Legal Profiles</strong><small>Professional identity online</small></div></div></div></section>
+<section class="section section-warm" id="advocates"><div class="container"><div class="featured-head"><div><p class="eyebrow">Professionals</p><h2 class="section-title">Meet Featured <span class="accent">Advocates</span></h2><p class="section-sub">Explore legal professionals and their areas of practice.</p></div><div class="adv-controls"><button class="circle-btn" id="advPrev" aria-label="Previous advocates">‹</button><button class="circle-btn" id="advNext" aria-label="Next advocates">›</button></div></div><div class="search-box"><input id="advSearch" type="search" placeholder="Search by name, city, skill or practice area..." aria-label="Search advocates"><span>⌕</span></div><div class="search-note" id="searchNote">Showing 8 featured advocates</div><div class="adv-track" id="advTrack">
 <article class="adv-card" data-search="saloni sharma lucknow corporate commercial disputes labour employment"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate Saloni Sharma</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Corporate & Commercial Disputes</span><span>Labour & Employment</span></div><div class="adv-exp">Experience: 0 years</div><button class="profile-link" data-name="Advocate Saloni Sharma">View Full Profile <b>→</b></button></div></article>
 <article class="adv-card" data-search="senior advocate shiv lucknow civil family property real estate"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Senior Advocate Shiv</h3><div class="adv-role">Senior Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Civil Law</span><span>Family Law</span><span>Property & Real Estate</span></div><div class="adv-exp">Experience: 5 years</div><button class="profile-link" data-name="Senior Advocate Shiv">View Full Profile <b>→</b></button></div></article>
 <article class="adv-card" data-search="govind kumar lucknow civil corporate commercial consumer"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate GOVIND KUMAR</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Civil Law</span><span>Corporate & Commercial Disputes</span><span>Consumer Law</span></div><div class="adv-exp">Experience: 2 years</div><button class="profile-link" data-name="Advocate GOVIND KUMAR">View Full Profile <b>→</b></button></div></article>
@@ -518,25 +843,9 @@ html[data-theme="light"] .practice-astrotalk .practice-card h3{color:#241b0d}
 <article class="adv-card" data-search="gentle innovation technology lucknow civil corporate law"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate Gentle Innovation Technology</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Civil Law</span><span>Corporate Law</span></div><div class="adv-exp">Experience: 20 years</div><button class="profile-link" data-name="Advocate Gentle Innovation Technology">View Full Profile <b>→</b></button></div></article>
 <article class="adv-card" data-search="govind kumar lucknow civil law"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate GOVIND KUMAR</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Civil Law</span></div><div class="adv-exp">Experience: 3 years</div><button class="profile-link" data-name="Advocate GOVIND KUMAR">View Full Profile <b>→</b></button></div></article>
 <article class="adv-card" data-search="tathhh lucknow civil criminal family"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate tathhh</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Civil Law</span><span>Criminal Law</span><span>Family Law</span></div><div class="adv-exp">Experience: 3 years</div><button class="profile-link" data-name="Advocate tathhh">View Full Profile <b>→</b></button></div></article>
-<article class="adv-card" data-search="advocate test lucknow legal services"><div class="adv-card-top"><div class="adv-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=85" alt="Advocate profile photo" loading="lazy"></div><div><h3>Advocate test</h3><div class="adv-role">Advocate</div></div></div><div class="adv-card-body"><div class="adv-location">⌖ Lucknow, Uttar Pradesh</div><div class="adv-tags"><span>Legal Services</span></div><div class="adv-exp">Experience: 0 years</div><button class="profile-link" data-name="Advocate test">View Full Profile <b>→</b></button></div></article>
 </div><div id="noResults" style="display:none;text-align:center;color:var(--muted);font-size:10px;padding:20px">No advocates found. Try another search.</div></div></section>
 
-<section class="section section-warm section-topline" id="find-by-need">
- <div class="container">
-  <div class="section-row-head">
-   <div><p class="eyebrow">Find the right professional</p><h2 class="section-title">Legal Help for <span class="accent">Every Need</span></h2><p class="section-sub">Start with the legal area that best describes what you are looking for.</p></div>
-   <a class="text-link" href="#practice">View all practice areas ↗</a>
-  </div>
-  <div class="need-grid">
-   <a href="#advocates" class="need-card"><span>⌂</span><strong>Property & Real Estate</strong><small>Property matters, RERA and transactions</small></a>
-   <a href="#advocates" class="need-card"><span>⚖</span><strong>Business & Corporate</strong><small>Contracts, company and commercial disputes</small></a>
-   <a href="#advocates" class="need-card"><span>♡</span><strong>Family Matters</strong><small>Matrimonial, divorce and custody matters</small></a>
-   <a href="#advocates" class="need-card"><span>⛨</span><strong>Criminal Matters</strong><small>Criminal defence and bail matters</small></a>
-   <a href="#advocates" class="need-card"><span>▤</span><strong>Civil Disputes</strong><small>Recovery, injunctions and civil litigation</small></a>
-   <a href="#advocates" class="need-card"><span>▧</span><strong>Tax & Finance</strong><small>Taxation and financial regulations</small></a>
-  </div>
- </div>
-</section>
+
 
 <section class="section section-dark section-topline practice-astrotalk" id="practice">
  <div class="container">
@@ -564,40 +873,50 @@ html[data-theme="light"] .practice-astrotalk .practice-card h3{color:#241b0d}
  </div>
 </section>
 
-<section class="section section-dark section-topline" id="professional-directory">
- <div class="container">
-  <div class="section-head"><p class="eyebrow">A clearer way to discover</p><h2 class="section-title">Explore Profiles with <span class="accent">Confidence</span></h2><p class="section-sub">Chamberly helps organise professional information so visitors can review the details that matter to them.</p></div>
-  <div class="trust-grid">
-   <article class="trust-item"><div class="trust-icon">✓</div><strong>Professional Details</strong><p>Review the credentials and enrolment information displayed on an advocate's profile.</p></article>
-   <article class="trust-item"><div class="trust-icon">⌖</div><strong>Location & Practice</strong><p>Explore profiles by location and stated areas of legal practice.</p></article>
-   <article class="trust-item"><div class="trust-icon">▦</div><strong>Digital Profile Access</strong><p>Open and share professional profile information through digital profile tools.</p></article>
+<section class="section section-warm discover-section" id="discover"><div class="container">
+ <div class="discover-heading"><div><p class="eyebrow">Discover Chamberly</p><h2 class="section-title">A Smarter Way to <span class="accent">Navigate Legal Discovery</span></h2><p class="section-sub">Explore legal professionals, understand their areas of practice and connect through clear, structured professional information.</p></div><a class="btn btn-line" href="#advocates">Explore Advocates <span class="arrow">→</span></a></div>
+ <div class="discover-grid">
+  <article class="discover-card discover-card-main"><span class="discover-icon">⌕</span><div><small>01 / DISCOVER</small><h3>Discover Relevant Professionals</h3><p>Narrow your discovery by location and area of law to find profiles relevant to your needs.</p></div><span class="discover-arrow">↗</span></article>
+  <article class="discover-card"><span class="discover-icon">✓</span><div><small>02 / REVIEW</small><h3>Understand the Profile</h3><p>Explore available credentials, enrolment information, experience and stated practice areas.</p></div><span class="discover-arrow">↗</span></article>
+  <article class="discover-card"><span class="discover-icon">▦</span><div><small>03 / ACCESS</small><h3>One Digital Identity</h3><p>Give your professional profile a simple, scan-friendly way to be accessed and shared.</p></div><span class="discover-arrow">↗</span></article>
+  <article class="discover-card"><span class="discover-icon">↗</span><div><small>04 / SHARE</small><h3>Share with Ease</h3><p>Share a professional profile link across the channels you already use.</p></div><span class="discover-arrow">↗</span></article>
+  <article class="discover-card"><span class="discover-icon">▣</span><div><small>05 / CONNECT</small><h3>Keep Details Accessible</h3><p>Make key professional contact information easier to access when needed.</p></div><span class="discover-arrow">↗</span></article>
+  <article class="discover-card discover-card-note"><span class="discover-note-mark">§</span><div><small>ONE CONNECTED PLATFORM</small><h3>Clarity at every step of discovery.</h3></div></article>
+ </div>
+</div></section>
+<section class="section profile-tools section-dark" id="profile-identity"><div class="container">
+ <div class="section-head"><p class="eyebrow">Your profile, your identity</p><h2 class="section-title">Make Your Professional Presence <span class="accent">Count</span></h2><p class="section-sub">One professional identity. Four simple ways to present, access and share it.</p></div>
+ <div class="identity-showcase">
+  <div class="identity-sidebar">
+   <button class="identity-tab active" data-tab="profile"><span>▤</span><span><b>Profile</b><small>Your complete professional page</small></span><i>→</i></button>
+   <button class="identity-tab" data-tab="qr"><span>▦</span><span><b>QR Code</b><small>Quick access with one scan</small></span><i>→</i></button>
+   <button class="identity-tab" data-tab="share"><span>↗</span><span><b>Share</b><small>A share-ready profile document</small></span><i>→</i></button>
+   <button class="identity-tab" data-tab="vcard"><span>▣</span><span><b>vCard</b><small>Save contact information</small></span><i>→</i></button>
+   <div class="identity-tab-copy"><strong id="identityTitle">Your professional profile</strong><p id="identityDesc">Bring your credentials, practice areas, experience and contact details together in one structured profile page.</p><ul id="identityPoints"><li>Professional summary and credentials</li><li>Practice areas and experience</li><li>Contact and digital presence</li></ul></div>
+  </div>
+  <div class="identity-preview-wrap"><div class="preview-label"><span>LIVE PREVIEW</span><span class="preview-status">● Chamberly profile concept</span></div>
+   <div class="identity-preview" id="identityPreview">
+    <div class="preview-profile"><div class="preview-cover"></div><div class="preview-person"><div class="preview-avatar">AM</div><div><span class="preview-verified">✓ VERIFIED PROFESSIONAL</span><h3>Advocate A. Mishra</h3><p>Advocate · Corporate & Civil Law</p><small>New Delhi, India</small></div><button>Connect</button></div><div class="preview-tabs"><b>Overview</b><span>Credentials</span><span>Practice Areas</span><span>Experience</span><span>Contact</span></div><div class="preview-content"><div><small>ABOUT</small><h4>Professional Overview</h4><p>Legal professional profile with qualifications, experience and areas of practice.</p></div><div class="preview-mini-grid"><span>Credentials</span><span>Practice Areas</span><span>Experience</span></div></div></div>
+   </div>
   </div>
  </div>
-</section>
+</div></section>
 
-<section class="section section-warm"><div class="container"><div class="section-head"><p class="eyebrow">Discover Chamberly</p><h2 class="section-title">A Platform for Your <span class="accent">Legal Needs</span></h2><p class="section-sub">Explore the tools and information that make professional discovery simpler.</p></div><div class="services-grid">
-<div class="service-card"><div class="icon">⌕</div><h3>Advocate Discovery</h3><p>Find legal professionals by location and expertise.</p></div><div class="service-card"><div class="icon">✓</div><h3>Verified Profiles</h3><p>View available professional and enrolment details.</p></div><div class="service-card"><div class="icon">▦</div><h3>Digital QR Profile</h3><p>Access and share a professional profile with a QR code.</p></div><div class="service-card"><div class="icon">↗</div><h3>Profile Sharing</h3><p>Share professional profile links across channels.</p></div><div class="service-card"><div class="icon">▣</div><h3>Download vCard</h3><p>Save professional contact details where available.</p></div><div class="service-card"><div class="icon">▤</div><h3>Knowledge Hub</h3><p>Explore legal updates and useful information.</p></div>
-</div></div></section>
-<section class="section profile-tools section-dark"><div class="container"><div class="section-head"><p class="eyebrow">Your profile, your identity</p><h2 class="section-title">Make Your Professional Presence <span class="accent">Count</span></h2><p class="section-sub">A digital profile can bring your credentials, experience and practice areas together.</p></div><div class="tools-shell"><div class="tool-copy"><div class="tool-tabs"><button class="tool-tab active" data-tab="profile">Profile</button><button class="tool-tab" data-tab="qr">QR Code</button><button class="tool-tab" data-tab="share">Share</button><button class="tool-tab" data-tab="vcard">vCard</button></div><h3 id="toolTitle">Your Professional Legal Identity</h3><p id="toolDesc">Create a verified digital profile that presents your professional experience, qualifications and areas of practice in one place.</p><div class="tool-points" id="toolPoints"><div class="tool-point"><i>✦</i> Showcase qualifications and enrolment details</div><div class="tool-point"><i>✦</i> Highlight practice areas and experience</div><div class="tool-point"><i>✦</i> Keep professional information accessible</div></div></div><div class="profile-mock"><div class="mock-header"><div class="mock-avatar">C</div><div><strong>Advocate Profile</strong><small>Verified Legal Professional</small></div><span style="margin-left:auto;color:var(--green);font-size:9px">● Verified</span></div><div class="mock-line gold" style="width:62%"></div><div class="mock-line" style="width:91%"></div><div class="mock-line" style="width:75%"></div><div class="mock-tags"><span></span><span></span><span></span></div><div class="mock-footer"><span>Professional Details</span><span>Share Profile ↗</span></div></div></div></div></section>
-<section class="section section-warm"><div class="container"><div class="section-row-head"><div><p class="eyebrow">Knowledge hub</p><h2 class="section-title">Legal Knowledge, <span class="accent">Made Accessible</span></h2><p class="section-sub">Stay informed with legal resources and professional insights.</p></div><a class="text-link" href="#footer">Visit Knowledge Hub ↗</a></div><div class="knowledge-grid"><article class="knowledge-card"><p class="eyebrow">Chamberly knowledge hub</p><h3>Explore Legal Updates & Professional Insights</h3><p>Read informative legal content and stay aware of developments across areas of law.</p><a href="#footer">Explore resources →</a></article><article class="knowledge-card"><p class="eyebrow">For individuals</p><h3>Understand Your Legal Options</h3><p>Build awareness of legal processes and areas of practice.</p><a href="#practice">Browse practice areas →</a></article><article class="knowledge-card"><p class="eyebrow">For advocates</p><h3>Strengthen Your Digital Identity</h3><p>Present your professional background through a structured profile.</p><a href="#join">Create a profile →</a></article></div></div></section>
-<section class="section digital-band" id="about"><div class="container digital-grid"><div class="identity-card"><div class="identity-symbol">⚖</div><h3>Your Professional Legal Identity</h3><p>A credible digital presence for your legal practice</p></div><div class="digital-copy"><p class="eyebrow">For legal professionals</p><h2>Build Your <span class="accent">Digital Professional Presence</span></h2><p>Create a professional profile that brings your experience, credentials and expertise together.</p><div class="feature-list"><div class="feature"><div class="feature-icon">✓</div><div><strong>Professional Profile</strong><span>Showcase qualifications, Bar Council enrolment and professional experience.</span></div></div><div class="feature"><div class="feature-icon">▦</div><div><strong>Personal QR Code</strong><span>Share your professional profile using a unique QR code.</span></div></div><div class="feature"><div class="feature-icon">↗</div><div><strong>Share Your Digital Profile</strong><span>Share your profile through WhatsApp, LinkedIn, email or your website.</span></div></div><div class="feature"><div class="feature-icon">▣</div><div><strong>Download vCard</strong><span>Allow professional contacts to save your details easily.</span></div></div></div></div></div></section>
-<section class="section section-dark"><div class="container why-layout"><div class="why-intro"><p class="eyebrow">Why Chamberly</p><h2>Discover Legal Professionals with <span class="accent">More Clarity</span></h2><p>Chamberly brings legal professional information into a structured digital platform, helping people explore profiles and areas of practice with greater ease.</p></div><div class="why-panels"><article class="why-panel"><h3>Explore structured professional profiles</h3><p>Review available details such as credentials, location, practice areas, experience and professional background.</p></article><article class="why-panel"><h3>Search across areas of law</h3><p>Explore professionals by practice area and location to identify profiles relevant to your legal requirements.</p></article><article class="why-panel"><h3>Access a shareable digital identity</h3><p>Advocates can present their professional information through a dedicated profile, QR code and shareable details.</p></article><article class="why-panel"><h3>A platform designed for discovery</h3><p>Chamberly provides a focused place to discover legal professionals and learn about their stated areas of expertise.</p></article></div></div></section>
-<section class="section section-warm" id="how"><div class="container"><div class="section-head"><p class="eyebrow">Simple process</p><h2 class="section-title">How Chamberly <span class="accent">Works</span></h2><p class="section-sub">Finding and exploring legal professionals is simple and straightforward.</p></div><div class="process-grid"><div class="process-item"><div class="process-number">01</div><h3>Search</h3><p>Search advocates by name, practice area or location.</p></div><div class="process-item"><div class="process-number">02</div><h3>Explore Profile</h3><p>Review available credentials, experience and professional details.</p></div><div class="process-item"><div class="process-number">03</div><h3>Connect</h3><p>Use the contact options provided on the professional profile.</p></div><div class="process-item"><div class="process-number">04</div><h3>Discuss Your Requirement</h3><p>Share your legal query directly with the professional you choose.</p></div></div></div></section>
+<section class="section section-dark why-chamberly" id="why"><div class="container"><div class="why-intro"><p class="eyebrow">Why Chamberly</p><h2>Find the right legal professional. <span class="accent">With confidence.</span></h2><p>Legal discovery should feel clear, not complicated. Chamberly brings useful professional information into one place, so you can explore relevant advocates, understand their work and decide how to take the next step.</p><a class="why-text-link" href="#advocates">Explore the directory <span>→</span></a></div><div class="why-panels"><article class="why-panel"><span class="why-index">01 <i>DISCOVER</i></span><div><h3>Relevant professionals, easier to find</h3><p>Explore advocates by practice area, location or name to narrow your search around what matters to you.</p></div></article><article class="why-panel"><span class="why-index">02 <i>UNDERSTAND</i></span><div><h3>Professional details in one view</h3><p>Review the available credentials, experience, enrolment information and areas of practice on each profile.</p></div></article><article class="why-panel"><span class="why-index">03 <i>MAKE AN INFORMED CHOICE</i></span><div><h3>Know more before reaching out</h3><p>Use the information shared by each professional to understand their background before making contact.</p></div></article><article class="why-panel"><span class="why-index">04 <i>CONNECT</i></span><div><h3>A direct path to the next conversation</h3><p>Find the available contact options and discuss your requirement directly with the professional you choose.</p></div></article></div></div></section>
+<section class="section section-warm how-chamberly" id="how"><div class="container"><div class="section-head"><p class="eyebrow">A simple journey</p><h2 class="section-title">From search to <span class="accent">connection.</span></h2><p class="section-sub">A straightforward way to explore legal professionals and start the right conversation.</p></div><div class="process-grid"><div class="process-item"><div class="process-topline"><span class="process-number">01</span><span class="process-kicker">BEGIN YOUR SEARCH</span></div><h3>Find</h3><p>Search by advocate name, city or practice area and discover professionals relevant to your needs.</p><span class="process-foot">Name · Location · Practice</span></div><div class="process-item"><div class="process-topline"><span class="process-number">02</span><span class="process-kicker">GET TO KNOW THEM</span></div><h3>Explore Profiles</h3><p>Look through the professional information available, including experience, credentials and areas of practice.</p><span class="process-foot">Credentials · Experience · Expertise</span></div><div class="process-item"><div class="process-topline"><span class="process-number">03</span><span class="process-kicker">CHOOSE HOW TO REACH OUT</span></div><h3>Connect</h3><p>Use the contact or connection options provided on the advocate’s profile to get in touch.</p><span class="process-foot">Profile · Contact · Connect</span></div><div class="process-item"><div class="process-topline"><span class="process-number">04</span><span class="process-kicker">TAKE IT FORWARD</span></div><h3>Start a Conversation</h3><p>Explain your requirement directly and discuss the next steps with the legal professional.</p><span class="process-foot">Discuss · Clarify · Proceed</span></div></div><p class="how-note">Chamberly supports professional discovery and connection. Advice, terms and any professional engagement are discussed directly with the legal professional.</p></div></section>
 <section class="section"><div class="container faq-layout"><div class="faq-title"><p class="eyebrow">Need to know</p><h2>First time?<br><span class="accent">Read</span> these first.</h2><p>Quick answers about discovering and connecting with legal professionals on Chamberly.</p></div><div class="faq-list"><div class="faq-item open"><button class="faq-q" aria-expanded="true">What is Chamberly? <span>＋</span></button><div class="faq-a">Chamberly is a digital platform that helps users discover advocates and legal professionals through professional profiles, practice areas and location information.</div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How can I find an advocate on Chamberly? <span>＋</span></button><div class="faq-a">Browse featured advocates or search by name, city or area of legal practice. Review the available profile information before contacting a professional.</div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">What information can I view on an advocate profile? <span>＋</span></button><div class="faq-a">Depending on the profile, you may find professional credentials, enrolment details, location, practice areas, experience, publications and contact options.</div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">How can advocates create a profile? <span>＋</span></button><div class="faq-a">Legal professionals can use the Join as Advocate option to begin creating a professional profile and provide the details requested during registration.</div></div><div class="faq-item"><button class="faq-q" aria-expanded="false">Can I share my Chamberly profile? <span>＋</span></button><div class="faq-a">Advocates can share their digital professional profile using its profile link or QR code, where those features are available.</div></div></div></div></section>
 <section class="cta" id="join"><div class="container"><p class="eyebrow">For legal professionals</p><h2>Are You a <span class="accent">Legal Professional?</span></h2><p>Create your professional digital profile, showcase your expertise and make it easier for people to discover and connect with you.</p><a class="btn" href="#footer">Create Your Advocate Profile <span class="arrow">→</span></a></div></section>
 </main>
-<footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><a class="brand" href="#home">Chamberly<span>.</span></a><p>A professional digital platform connecting clients with advocates and legal professionals, while helping legal professionals build their digital identity.</p></div><div class="footer-col"><h4>Platform</h4><a href="#advocates">Find Advocates</a><a href="#advocates">Law Firms</a><a href="#practice">Practice Areas</a><a href="#about">Knowledge Hub</a></div><div class="footer-col"><h4>Professionals</h4><a href="#join">Join as Advocate</a><a href="#footer">Login</a><a href="#about">Digital Profile</a><a href="#about">QR Profile</a></div><div class="footer-col"><h4>Support</h4><a href="#about">About Us</a><a href="mailto:hello@chamberly.in">Contact</a><a href="#footer">Privacy Policy</a><a href="#footer">Terms & Conditions</a></div></div><div class="footer-bottom"><span>© 2026 Chamberly. All rights reserved.</span><span>Professional Discovery. Digital Identity.</span></div></div></footer>
+<footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-about"><a class="brand" href="#home">Chamberly<span>.</span></a><p>A professional digital platform connecting clients with advocates and legal professionals, while helping legal professionals build their digital identity.</p></div><div class="footer-col"><h4>Platform</h4><a href="#advocates">Find Advocates</a><a href="#advocates">Law Firms</a><a href="#practice">Practice Areas</a><a href="#why">Knowledge Hub</a></div><div class="footer-col"><h4>Professionals</h4><a href="#join">Join as Advocate</a><a href="#footer">Login</a><a href="#join">Digital Profile</a><a href="#join">QR Profile</a></div><div class="footer-col"><h4>Support</h4><a href="#about">About Us</a><a href="mailto:hello@chamberly.in">Contact</a><a href="#footer">Privacy Policy</a><a href="#footer">Terms & Conditions</a></div></div><div class="footer-bottom"><span>© 2026 Chamberly. All rights reserved.</span><span>Professional Discovery. Digital Identity.</span></div></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 
 const themeToggle=document.getElementById('themeToggle');
 const themeIcon=themeToggle.querySelector('.theme-icon');
-const themeLabel=themeToggle.querySelector('.theme-label');
 function applyTheme(theme){
   document.documentElement.dataset.theme=theme;
   const light=theme==='light';
   themeIcon.textContent=light?'☾':'☼';
-  themeLabel.textContent=light?'Dark':'Light';
   themeToggle.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
   themeToggle.setAttribute('aria-pressed',String(light));
   themeToggle.title=light?'Switch to dark theme':'Switch to light theme';
@@ -617,17 +936,16 @@ heroPortraits.forEach((photo,i)=>{photo.style.animation=`portraitFloat ${5+i*.7}
 
 const header=document.getElementById('header');window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>15));
 const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('navlinks');menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
-const track=document.getElementById('advTrack');
-const advStep=()=>{const card=track.querySelector('.adv-card');return card?card.getBoundingClientRect().width+16:track.clientWidth*.8};
-const advNext=()=>{if(track.scrollLeft+track.clientWidth>=track.scrollWidth-advStep())track.scrollTo({left:0,behavior:'smooth'});else track.scrollBy({left:advStep(),behavior:'smooth'});};
-const advPrev=()=>{if(track.scrollLeft<=2)track.scrollTo({left:track.scrollWidth,behavior:'smooth'});else track.scrollBy({left:-advStep(),behavior:'smooth'});};
- document.getElementById('advPrev').addEventListener('click',advPrev);document.getElementById('advNext').addEventListener('click',advNext);
-let advAuto=setInterval(advNext,3200);const pauseAdv=()=>{clearInterval(advAuto);};const resumeAdv=()=>{clearInterval(advAuto);advAuto=setInterval(advNext,3200);};
-['mouseenter','touchstart','focusin'].forEach(ev=>track.addEventListener(ev,pauseAdv,{passive:true}));['mouseleave','touchend','focusout'].forEach(ev=>track.addEventListener(ev,resumeAdv,{passive:true}));
-
+// Featured advocates are displayed as a static grid; carousel/autoplay removed.
 const search=document.getElementById('advSearch'),advCards=[...document.querySelectorAll('.adv-card')],searchNote=document.getElementById('searchNote'),noResults=document.getElementById('noResults');search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let count=0;advCards.forEach(card=>{const show=card.dataset.search.includes(q);card.style.display=show?'':'none';if(show)count++});searchNote.textContent=`Showing ${count} of ${advCards.length} featured advocates`;noResults.style.display=count?'none':'block'});
 let toastTimer;function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}document.querySelectorAll('.profile-link').forEach(b=>b.addEventListener('click',()=>notify(`${b.dataset.name} profile selected`)));
 document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{const item=b.parentElement,open=item.classList.toggle('open');b.setAttribute('aria-expanded',String(open))}));
-const tabContent={profile:{title:'Your Professional Legal Identity',desc:'Create a verified digital profile that presents your professional experience, qualifications and areas of practice in one place.',points:['Showcase qualifications and enrolment details','Highlight practice areas and experience','Keep professional information accessible']},qr:{title:'Your Profile, One Scan Away',desc:'A personal QR code makes it simple to open and share your Chamberly professional profile.',points:['Make your profile easy to access','Use the QR code on professional materials','Share your profile in person or digitally']},share:{title:'Share Your Professional Profile',desc:'Make your digital professional identity accessible through a profile link that can be shared across channels.',points:['Share through WhatsApp and LinkedIn','Add your profile link to email or website','Help contacts reach your professional details']},vcard:{title:'Let Contacts Save Your Details',desc:'A downloadable vCard helps professional contacts save your available profile and contact information.',points:['Make contact details easier to save','Reduce manual entry of professional details','Keep your digital identity close at hand']}};document.querySelectorAll('.tool-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tool-tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const d=tabContent[btn.dataset.tab];document.getElementById('toolTitle').textContent=d.title;document.getElementById('toolDesc').textContent=d.desc;document.getElementById('toolPoints').innerHTML=d.points.map(p=>`<div class="tool-point"><i>✦</i> ${p}</div>`).join('')}));
+const identityViews={
+ profile:{title:'Your professional profile',desc:'Bring your credentials, practice areas, experience and contact details together in one structured profile page.',points:['Professional summary and credentials','Practice areas and experience','Contact and digital presence'],html:`<div class="preview-profile"><div class="preview-cover"></div><div class="preview-person"><div class="preview-avatar">AM</div><div><span class="preview-verified">✓ VERIFIED PROFESSIONAL</span><h3>Advocate A. Mishra</h3><p>Advocate · Corporate & Civil Law</p><small>New Delhi, India</small></div><button>Connect</button></div><div class="preview-tabs"><b>Overview</b><span>Credentials</span><span>Practice Areas</span><span>Experience</span><span>Contact</span></div><div class="preview-content"><div><small>ABOUT</small><h4>Professional Overview</h4><p>Legal professional profile with qualifications, experience and areas of practice.</p></div><div class="preview-mini-grid"><span>Credentials</span><span>Practice Areas</span><span>Experience</span></div></div></div>`},
+ qr:{title:'A profile that is one scan away',desc:'A personal QR code gives people a quick way to open your professional profile from a phone camera.',points:['Place it on visiting cards and stationery','Share it at meetings and events','Connect people to your latest profile'],html:`<div class="qr-preview"><div class="qr-paper"><span class="qr-brand">Chamberly<span>.</span></span><div class="qr-code" aria-label="Illustrative QR code"><i></i></div><h3>Advocate A. Mishra</h3><p>Scan to view professional profile</p><small>chamberly.in/advocate/profile</small></div></div>`},
+ share:{title:'A polished profile to share',desc:'Present your professional identity in a clean, document-style layout that is easy to share digitally.',points:['A neat profile summary','Credentials and practice areas at a glance','Designed for digital sharing or print'],html:`<div class="share-preview"><div class="share-document"><div class="doc-top"><span>Chamberly<span>.</span></span><small>PROFESSIONAL PROFILE</small></div><div class="doc-rule"></div><div class="doc-person"><div class="doc-avatar">AM</div><div><h3>Advocate A. Mishra</h3><p>Legal Professional</p></div></div><h4>Professional Summary</h4><p class="doc-lines">Experienced legal professional profile showcasing practice areas, credentials and professional background.</p><div class="doc-columns"><div><b>Practice Areas</b><span>Corporate Law</span><span>Civil Litigation</span><span>Commercial Disputes</span></div><div><b>Credentials</b><span>Bar Council Enrolment</span><span>Professional Experience</span><span>Contact Details</span></div></div><div class="doc-footer">CHAMBERLY · DIGITAL PROFESSIONAL IDENTITY <b>PDF</b></div></div></div>`},
+ vcard:{title:'Make professional contacts easy to save',desc:'A digital business-card style vCard keeps key contact information together for quick saving.',points:['Name and professional designation','Phone, email and website fields','Save contact details to a device'],html:`<div class="vcard-preview"><div class="vcard"><div class="vcard-top"><span>Chamberly<span>.</span></span><span>LEGAL PROFESSIONAL</span></div><div class="vcard-main"><div class="vcard-avatar">AM</div><div><h3>Advocate A. Mishra</h3><p>Advocate</p></div></div><div class="vcard-divider"></div><div class="vcard-details"><span>☎ &nbsp;+91 98765 43210</span><span>✉ &nbsp;advocate@example.com</span><span>⌖ &nbsp;New Delhi, India</span><span>◎ &nbsp;chamberly.in</span></div><div class="vcard-bottom"><b>Save Contact</b><span>vCard · .vcf</span></div></div></div>`}
+};
+document.querySelectorAll('.identity-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.identity-tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const d=identityViews[btn.dataset.tab];document.getElementById('identityTitle').textContent=d.title;document.getElementById('identityDesc').textContent=d.desc;document.getElementById('identityPoints').innerHTML=d.points.map(x=>`<li>${x}</li>`).join('');document.getElementById('identityPreview').innerHTML=d.html}));
 </script>
 </body></html>
